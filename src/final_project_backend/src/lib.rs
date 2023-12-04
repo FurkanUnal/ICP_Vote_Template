@@ -73,7 +73,7 @@ fn get_proposal_count() -> u64 {
 
 #[ic_cdk::update]
 fn create_proposal(key: u64, proposal: CreateProposal) -> Option<Proposal> {
-    let value: Proposal = Proposal {
+    let value = Proposal {
         description: proposal.description,
         approve: 0u32,
         pass: 0u32,
@@ -101,7 +101,7 @@ fn edit_proposal(key: u64, proposal: CreateProposal) -> Result<(), VoteError> {
             return Err(VoteError::AccessRejected);
         }
 
-        let value: Proposal = Proposal {
+        let value = Proposal {
             description: proposal.description,
             approve: old_proposal.approve,
             reject: old_proposal.reject,
